@@ -17,6 +17,13 @@
     </div>
   </form>
 
+  <div class="select-place-btn">
+    <el-button-custom [inputLabel]="'Продолжить'"
+                      [inputDisabled]="!(!!returnDataForm?.grade && !!returnDataForm?.mode)"
+                      (click)="onNavigate()"
+    ></el-button-custom>
+  </div>
+
 
 
 </div>

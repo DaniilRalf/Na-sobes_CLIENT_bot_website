@@ -1,0 +1,15 @@
+@import "../../../styles";
+
+.button-custom {
+
+  button {
+    color: var(--font-color-main);
+    font-weight: bold;
+    width: 600px;
+  }
+
+  ::ng-deep {
+
+  }
+
+}

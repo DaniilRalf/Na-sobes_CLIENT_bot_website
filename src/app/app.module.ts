@@ -12,6 +12,8 @@ import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SelectCustomComponent } from './widgets/select-custom/select-custom.component';
+import {MatButtonModule} from "@angular/material/button";
+import { ButtonCustomComponent } from './widgets/button-custom/button-custom.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { SelectCustomComponent } from './widgets/select-custom/select-custom.com
     SelectPlaceComponent,
     SandboxPlaceComponent,
     TestingPlaceComponent,
-    SelectCustomComponent
+    SelectCustomComponent,
+    ButtonCustomComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { SelectCustomComponent } from './widgets/select-custom/select-custom.com
     FormsModule,
     MatSelectModule,
     MatInputModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {GradeEnum, ModeEnum} from "../../models";
 import {FormControl, FormControlStatus, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 interface ReturnDataFormType {
   grade: GradeEnum,
@@ -26,9 +27,11 @@ export class SelectPlaceComponent implements OnInit{
 
   public myForm!: FormGroup
 
-  private returnDataForm!: ReturnDataFormType
+  public returnDataForm!: ReturnDataFormType
 
-  constructor() {
+  constructor(
+    private router: Router,
+  ) {
   }
 
   ngOnInit() {
@@ -45,9 +48,14 @@ export class SelectPlaceComponent implements OnInit{
     })
   }
 
-  // selectionChange(data: ModeEnum | GradeEnum): void {
-  //   console.log(data)
-  //   console.log(this.myForm)
-  // }
+  public onNavigate(): void {
+    if (this.returnDataForm?.mode && this.returnDataForm?.grade) {
+      this.router.navigate([
+        '/frontend-js',
+        this.returnDataForm.grade,
+        `${this.returnDataForm.mode}-place`
+      ]).then();
+    }
+  }
 
 }

@@ -60,15 +60,12 @@ export class SelectCustomComponent implements OnInit, ControlValueAccessor {
   }
   onTouch: any = () => {
   }
-
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
-
   registerOnTouched(fn: any): void {
     this.onTouch = fn;
   }
-
   writeValue(input: string) {
     this.input = input;
   }

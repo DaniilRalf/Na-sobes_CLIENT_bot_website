@@ -1,1 +1,21 @@
-<p>sandbox-place works!</p>
+<div class="sandbox-place">
+
+  <div class="sandbox-place-btn-back">
+    <el-button-custom
+      [inputDisabled]="false"
+      [inputLabel]="'На страницу выбора'"
+      (click)="onNavigate()"
+    ></el-button-custom>
+  </div>
+
+  <div class="sandbox-place-body">фывфы</div>
+
+  <div class="sandbox-place-btn-go">
+    <el-button-custom
+      [inputDisabled]="false"
+      [inputLabel]="'Ок! Дальше'"
+      (click)="onNextQuestion()"
+    ></el-button-custom>
+  </div>
+
+</div>

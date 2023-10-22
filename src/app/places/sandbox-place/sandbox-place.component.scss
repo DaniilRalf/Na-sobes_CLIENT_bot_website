@@ -1,0 +1,19 @@
+@import "../../../styles";
+
+.sandbox-place {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-btn-back {
+    margin-bottom: 25px;
+  }
+
+  &-body {}
+
+  &-btn-go {
+    margin-top: 25px;
+  }
+}
