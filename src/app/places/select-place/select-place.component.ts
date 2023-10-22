@@ -1,6 +1,16 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {GradeEnum} from "../../models";
-import {ModeEnum} from "../../models";
+import {GradeEnum, ModeEnum} from "../../models";
+import {FormControl, FormControlStatus, FormGroup, Validators} from "@angular/forms";
+
+interface ReturnDataFormType {
+  grade: GradeEnum,
+  mode: ModeEnum,
+}
+
+interface SelectDataType {
+  label: string,
+  value: string
+}
 
 @Component({
   selector: 'app-select-place',
@@ -10,11 +20,13 @@ import {ModeEnum} from "../../models";
 })
 export class SelectPlaceComponent implements OnInit{
 
-  // TODO: вынести в отдельный тип
-  public gradeList!: {label: string, value: string}[]
+  public gradeList!: SelectDataType[]
 
-  // TODO: вынести в отдельный тип
-  public modeList!: {label: string, value: string}[]
+  public modeList!: SelectDataType[]
+
+  public myForm!: FormGroup
+
+  private returnDataForm!: ReturnDataFormType
 
   constructor() {
   }
@@ -22,6 +34,20 @@ export class SelectPlaceComponent implements OnInit{
   ngOnInit() {
     this.gradeList = Object.keys(GradeEnum).map((key: string) => ({label: key, value: key.toLowerCase()}))
     this.modeList = Object.keys(ModeEnum).map((key: string) => ({label: key, value: key.toLowerCase()}))
+
+    this.myForm = new FormGroup({
+      grade: new FormControl(GradeEnum.Junior, [Validators.required]),
+      mode: new FormControl("", [Validators.required]),
+    });
+
+    this.myForm.valueChanges.subscribe((nextFormData: FormControlStatus | ReturnDataFormType) => {
+      this.returnDataForm = <ReturnDataFormType>nextFormData
+    })
   }
+
+  // selectionChange(data: ModeEnum | GradeEnum): void {
+  //   console.log(data)
+  //   console.log(this.myForm)
+  // }
 
 }

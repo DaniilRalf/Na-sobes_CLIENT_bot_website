@@ -2,12 +2,21 @@
 
   <div class="select-place-heading font-size-heading">Выберите Ваш уровень и желаемый режим обучения</div>
 
-  <div class="select-place-grade">
-    <el-select-custom [inputList]="gradeList" [inputLabel]="'Ваш уровень:'"></el-select-custom>
-  </div>
+  <form [formGroup]="myForm">
+    <div class="select-place-grade">
+      <el-select-custom [formControlName]="'grade'"
+                        [inputList]="gradeList"
+                        [inputLabel]="'Ваш уровень'"
+      ></el-select-custom>
+    </div>
+    <div class="select-place-mode">
+      <el-select-custom [formControlName]="'mode'"
+                        [inputList]="modeList"
+                        [inputLabel]="'Режим'"
+      ></el-select-custom>
+    </div>
+  </form>
 
-  <div class="select-place-mode">
-    <el-select-custom [inputList]="modeList" [inputLabel]="'Режим:'"></el-select-custom>
-  </div>
+
 
 </div>

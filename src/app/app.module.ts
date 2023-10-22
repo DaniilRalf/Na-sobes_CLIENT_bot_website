@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SelectCustomComponent } from './widgets/select-custom/select-custom.component';
 
 @NgModule({
@@ -27,7 +27,9 @@ import { SelectCustomComponent } from './widgets/select-custom/select-custom.com
     BrowserAnimationsModule,
     FormsModule,
 
+    ReactiveFormsModule,
     MatFormFieldModule,
+    FormsModule,
     MatSelectModule,
     MatInputModule,
   ],
