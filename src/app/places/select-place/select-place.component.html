@@ -1,1 +1,13 @@
-<p>select-place works!</p>
+<div class="select-place">
+
+  <div class="select-place-heading font-size-heading">Выберите Ваш уровень и желаемый режим обучения</div>
+
+  <div class="select-place-grade">
+    <el-select-custom [inputList]="gradeList" [inputLabel]="'Ваш уровень:'"></el-select-custom>
+  </div>
+
+  <div class="select-place-mode">
+    <el-select-custom [inputList]="modeList" [inputLabel]="'Режим:'"></el-select-custom>
+  </div>
+
+</div>

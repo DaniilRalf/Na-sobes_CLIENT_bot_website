@@ -1,0 +1,14 @@
+<div class="custom-select">
+
+  <div class="custom-select-grade">
+    <mat-form-field>
+      <mat-label>{{inputLabel}}</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let grade of inputList"
+                    value="{{grade.value}}"
+        >{{grade.label}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+</div>

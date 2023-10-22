@@ -1,0 +1,19 @@
+@import "../../../styles";
+
+.custom-select {
+
+  ::ng-deep {
+    mat-form-field {
+      width: 600px;
+
+      .mat-mdc-text-field-wrapper {
+        border-radius: 20px;
+
+        .mat-mdc-form-field-focus-overlay {
+          color: var(--font-color-main) !important;
+        }
+      }
+    }
+  }
+
+}

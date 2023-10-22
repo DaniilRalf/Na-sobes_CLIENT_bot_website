@@ -1,0 +1,13 @@
+.app.desktop {
+  --font-color-main: #d3d3d3;
+
+  --background-color: #525d77;
+}
+
+.app.bot {
+  //--tg-theme-bg-color
+  //--tg-theme-text-color
+  --font-color-main: var(--tg-theme-text-color);
+
+  --background-color: var(--tg-theme-bg-color);
+}
