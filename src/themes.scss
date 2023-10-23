@@ -2,6 +2,8 @@
   --font-color-main: #d3d3d3;
 
   --background-color: #333948;
+
+  --theme-main-color: #00bcd4
 }
 
 .app.bot {
@@ -10,4 +12,6 @@
   --font-color-main: var(--tg-theme-text-color);
 
   --background-color: var(--tg-theme-bg-color);
+
+  --theme-main-color: #00bcd4
 }

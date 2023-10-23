@@ -1,16 +1,4 @@
-
-export interface SandboxDataType {
-  number: number,
-  question: string,
-  answer:({[SandboxDataAnswer.Code]: string} | {[SandboxDataAnswer.Paragraph]: string})[]
-}
-export enum SandboxDataAnswer {
-  Paragraph = 'paragraph',
-  Code = 'code',
-}
-
-
-
+import {SandboxDataAnswerType, SandboxDataType} from "../../../models";
 
 export const JuniorSandbox: SandboxDataType[] = [
 
@@ -19,15 +7,15 @@ export const JuniorSandbox: SandboxDataType[] = [
     question: 'В чем разница между null и undefined?',
     answer: [
       {
-        [SandboxDataAnswer.Paragraph]: 'undefined («неопределенный») представляет собой значение по умолчанию:\n' +
-          'переменной, которой не было присвоено значения, т.е. объявленной, но не инициализированной переменной;\n' +
-          'функции, которая ничего не возвращает явно, например, console.log(1);\n' +
-          'несуществующего свойства объекта.\n' +
+        [SandboxDataAnswerType.Paragraph]: 'undefined («неопределенный») представляет собой значение по умолчанию:\n' +
+          '- переменной, которой не было присвоено значения, т.е. объявленной, но не инициализированной переменной;\n' +
+          '- функции, которая ничего не возвращает явно, например, console.log(1);\n' +
+          '- несуществующего свойства объекта.\n' +
           '\n' +
           'В указанных случаях движок JS присваивает значение undefined.'
       },
       {
-        [SandboxDataAnswer.Code]: 'let _thisIsUndefined\n' +
+        [SandboxDataAnswerType.Code]: 'let _thisIsUndefined\n' +
           'const doNothing = () => {}\n' +
           'const someObj = {\n' +
           '    a: \'ay\',\n' +
@@ -38,9 +26,103 @@ export const JuniorSandbox: SandboxDataType[] = [
           'console.log(doNothing()) // undefined\n' +
           'console.log(someObj[\'d\']) // undefined',
       },
+      {
+        [SandboxDataAnswerType.Paragraph]: 'null — это «значение отсутствия значения». null — это значение, которое присваивается переменной явно.\n' +
+        'В примере ниже мы получаем null, когда метод fs.readFile отрабатывает без ошибок:'
+      },
+      {
+        [SandboxDataAnswerType.Code]: 'fs.readFile(\'path/to/file\', (e, data) => {\n' +
+        '    console.log(e) // здесь мы получаем null\n' +
+        'if(e) {\n' +
+        '    console.log(e)\n' +
+        '}\n' +
+        '    console.log(data)\n' +
+        '})'
+      },
+      {
+        [SandboxDataAnswerType.Paragraph]: 'При сравнении null и undefined мы получаем true, когда используем оператор "==", и false при использовании оператора "===". О том, почему так происходит, см. ниже.'
+      },
+      {
+        [SandboxDataAnswerType.Code]: 'console.log(null == undefined) // true\n' +
+        'console.log(null === undefined) // false'
+      },
     ]
-  }
+  },
+
+  {
+    number: 2,
+    question: 'Для чего используется оператор "&&"?',
+    answer: [
+      {
+        [SandboxDataAnswerType.Paragraph]: 'Оператор "&&" (логическое и) находит и возвращает первое ложное значение либо последний операнд, когда все значения истинные.\n' +
+        'Он использует короткое замыкание во избежание лишних затрат:'
+      },
+      {
+        [SandboxDataAnswerType.Code]: 'console.log(false && 1 && []) // false\n' +
+        'console.log(\' \' && true && 5) // 5'
+      },
+      {
+        [SandboxDataAnswerType.Paragraph]: 'С оператором «if»:'
+      },
+      {
+        [SandboxDataAnswerType.Code]: 'const router: Router = Router()\n' +
+        '\n' +
+        'router.get(\'/endpoint\', (req: Request, res: Response) => {\n' +
+        '    let conMobile: PoolConnection\n' +
+        '    try {\n' +
+        '        // операции с базой данных\n' +
+        '    } catch (e) {\n' +
+        '        if (conMobile) {\n' +
+        '            conMobile.release()\n' +
+        '        }\n' +
+        '    }\n' +
+        '})'
+      },
+      {
+        [SandboxDataAnswerType.Paragraph]: 'То же самое с оператором "&&":'
+      },
+      {
+        [SandboxDataAnswerType.Code]: 'const router: Router = Router()\n' +
+        '\n' +
+        'router.get(\'/endpoint\', (req: Request, res: Response) => {\n' +
+        '    let conMobile: PoolConnection\n' +
+        '    try {\n' +
+        '        // операции с базой данных\n' +
+        '    } catch (e) {\n' +
+        '        conMobile && conMobile.release()\n' +
+        '    }\n' +
+        '})'
+      },
+    ]
+  },
+
+  {
+    number: 3,
+    question: 'Для чего используется оператор "||"?',
+    answer: [
+      {
+        [SandboxDataAnswerType.Paragraph]: 'Оператор "||" (логическое или) находит и возвращает первое истинное значение.\n' +
+        'Он также использует короткое замыкание.\n' +
+        'Данный оператор использовался для присвоения параметров по умолчанию в функциях до того, как параметры по умолчанию были стандартизированы в ES6.'
+      },
+      {
+        [SandboxDataAnswerType.Code]: 'console.log(null || 1 || undefined) // 1\n' +
+        '\n' +
+        'function logName(name) {\n' +
+        '    let n = name || Mark\n' +
+        '    console.log(n)\n' +
+        '}\n' +
+        '\n' +
+        'logName() // Mark'
+      },
+    ]
+  },
 
 ]
 
-
+// {
+//   [SandboxDataAnswerType.Paragraph]: ''
+// },
+// {
+//   [SandboxDataAnswerType.Code]: ''
+// },

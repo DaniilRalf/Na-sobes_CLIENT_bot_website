@@ -20,7 +20,14 @@ $na-sobes-theme: mat.define-light-theme((
 
 @import "themes";
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  //TODO: странный баг с тем что есть встроенный iframe который занимает высоту
+  iframe {
+    display: none;
+  }
+}
 * {
   margin: 0;
   padding: 0;

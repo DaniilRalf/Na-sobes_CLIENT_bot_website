@@ -8,7 +8,15 @@
     ></el-button-custom>
   </div>
 
-  <div class="sandbox-place-body">фывфы</div>
+  <div class="sandbox-place-body">
+    <div class="heading">Вопрос № {{activeQuestion?.number}}:
+      <br>
+      <p class="font-size-heading">"{{activeQuestion?.question}}"</p>
+    </div>
+    <div class="content">
+      <ng-container *ngTemplateOutlet="questionGenerate"></ng-container>
+    </div>
+  </div>
 
   <div class="sandbox-place-btn-go">
     <el-button-custom
@@ -19,3 +27,15 @@
   </div>
 
 </div>
+
+
+<ng-template #questionGenerate>
+  <div class="" *ngFor="let answer of activeQuestion?.answer">
+    <ng-container class="" *ngFor="let answerItem of answer | keyvalue">
+      <pre class="paragraph" *ngIf="answerItem.key === SandboxDataAnswerType.Paragraph">{{answerItem.value}}</pre>
+      <div class="code" *ngIf="answerItem.key === SandboxDataAnswerType.Code">
+        <pre>{{answerItem.value}}</pre>
+      </div>
+    </ng-container>
+  </div>
+</ng-template>
