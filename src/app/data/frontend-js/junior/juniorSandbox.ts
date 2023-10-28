@@ -119,10 +119,3 @@ export const JuniorSandbox: SandboxDataType[] = [
   },
 
 ]
-
-// {
-//   [SandboxDataAnswerType.Paragraph]: ''
-// },
-// {
-//   [SandboxDataAnswerType.Code]: ''
-// },

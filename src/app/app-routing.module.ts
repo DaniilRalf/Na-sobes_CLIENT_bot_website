@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'frontend-js',
-    loadChildren: () => import('./pages/frontend-js/frontend-js.module').then(m => m.FrontendJsModule)
+    loadChildren: () => import('./pages/frontend-js').then(m => m.FrontendJsModule)
   },
 ];
 

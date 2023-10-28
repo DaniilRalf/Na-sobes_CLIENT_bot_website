@@ -14,6 +14,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SelectCustomComponent } from './widgets/select-custom/select-custom.component';
 import {MatButtonModule} from "@angular/material/button";
 import { ButtonCustomComponent } from './widgets/button-custom/button-custom.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ButtonCustomComponent } from './widgets/button-custom/button-custom.com
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
 
     ReactiveFormsModule,
     MatFormFieldModule,

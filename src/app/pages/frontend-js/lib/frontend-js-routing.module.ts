@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
-import {FrontendJsComponent} from "./frontend-js.component";
-import {SelectPlaceComponent} from "../../places/select-place/select-place.component";
-import {SandboxPlaceComponent} from "../../places/sandbox-place/sandbox-place.component";
-import {TestingPlaceComponent} from "../../places/testing-place/testing-place.component";
+import {FrontendJsComponent} from "../model/frontend-js.component";
+import {SelectPlaceComponent} from "../../../places/select-place/select-place.component";
+import {SandboxPlaceComponent} from "../../../places/sandbox-place/sandbox-place.component";
+import {TestingPlaceComponent} from "../../../places/testing-place/testing-place.component";
 
 
 const routes: Routes = [
