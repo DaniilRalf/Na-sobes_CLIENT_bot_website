@@ -9,9 +9,9 @@
   </div>
 
   <div class="sandbox-place-body">
-    <div class="heading">Вопрос № {{activeQuestion?.number}}:
+    <div class="heading">Вопрос № {{actualQuestion?.number}}:
       <br>
-      <p class="font-size-heading">"{{activeQuestion?.question}}"</p>
+      <p class="font-size-heading">{{actualQuestion?.question}}</p>
     </div>
     <div class="content">
       <ng-container *ngTemplateOutlet="questionGenerate"></ng-container>
@@ -30,7 +30,7 @@
 
 
 <ng-template #questionGenerate>
-  <div class="" *ngFor="let answer of activeQuestion?.answer">
+  <div class="" *ngFor="let answer of actualQuestion?.answer">
     <ng-container class="" *ngFor="let answerItem of answer | keyvalue">
       <pre class="paragraph" *ngIf="answerItem.key === SandboxDataAnswerType.Paragraph">{{answerItem.value}}</pre>
       <div class="code" *ngIf="answerItem.key === SandboxDataAnswerType.Code">
