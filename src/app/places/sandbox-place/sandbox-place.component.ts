@@ -34,14 +34,15 @@ export class SandboxPlaceComponent implements OnInit {
 
   ngOnInit() {
     this.activeUrl = this.router.url.split('/frontend-js')[1]
+    this.setActiveConfig()
 
 
-    this.httpService.getCountQuestion(GradeEnum.Junior)
+    this.httpService.getCountQuestion(this.activeGrade)
       .pipe(
         take(1),
       ).subscribe((count: number) => {
         this.countQuestion = count
-        this.setActiveConfig()
+        this.onNextQuestion()
       })
   }
 
@@ -66,7 +67,7 @@ export class SandboxPlaceComponent implements OnInit {
   }
 
   private getActualQuestion(questionNumber: number): void {
-    this.httpService.getActualQuestion(questionNumber, GradeEnum.Junior)
+    this.httpService.getActualQuestion(questionNumber, this.activeGrade)
       .pipe(
         take(1),
       ).subscribe((data: SandboxDataType) => {
@@ -80,11 +81,11 @@ export class SandboxPlaceComponent implements OnInit {
     if (this.activeUrl.includes(GradeEnum.Junior) && this.activeUrl.includes(ModeEnum.Sandbox)) {
       this.activeMode = ModeEnum.Sandbox
       this.activeGrade = GradeEnum.Junior
-      this.onNextQuestion()
     } else  if (this.activeUrl.includes(GradeEnum.Junior) && this.activeUrl.includes('testing')) {
 
     } else if (this.activeUrl.includes('middle') && this.activeUrl.includes(ModeEnum.Sandbox)) {
-
+      this.activeMode = ModeEnum.Sandbox
+      this.activeGrade = GradeEnum.Middle
     } else if (this.activeUrl.includes('middle') && this.activeUrl.includes('testing')) {
 
     }
