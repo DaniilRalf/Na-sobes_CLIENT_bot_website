@@ -6,8 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
   telegramPlatform = (window as any).Telegram
   title = 'na-sobes';
-
 }

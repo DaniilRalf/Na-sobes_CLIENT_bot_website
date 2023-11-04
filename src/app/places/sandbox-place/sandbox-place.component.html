@@ -9,7 +9,12 @@
   </div>
 
   <div class="sandbox-place-body">
-    <div class="heading">Вопрос № {{actualQuestion?.number}}:
+    <div class="heading"
+         *ngIf="!actualQuestion"
+    >Пока вопросов нет</div>
+    <div class="heading"
+         *ngIf="actualQuestion"
+    >Вопрос № {{actualQuestion?.number}}:
       <br>
       <p class="font-size-heading">{{actualQuestion?.question}}</p>
     </div>

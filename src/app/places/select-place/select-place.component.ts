@@ -21,13 +21,15 @@ interface SelectDataType {
 })
 export class SelectPlaceComponent implements OnInit{
 
-  public gradeList!: SelectDataType[]
+  telegramPlatform = (window as any).Telegram as any
 
-  public modeList!: SelectDataType[]
+  gradeList!: SelectDataType[]
 
-  public myForm!: FormGroup
+  modeList!: SelectDataType[]
 
-  public returnDataForm!: ReturnDataFormType
+  myForm!: FormGroup
+
+  returnDataForm!: ReturnDataFormType
 
   constructor(
     private router: Router,

@@ -1,6 +1,6 @@
 <div class="select-place">
 
-  <div class="select-place-btn">
+  <div class="select-place-btn" *ngIf="!telegramPlatform">
     <el-button-custom
       [inputDisabled]="false"
       [inputLabel]="'На страницу выбора сферы'"
