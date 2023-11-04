@@ -1,0 +1,16 @@
+@import "../../../styles";
+
+.testing-place {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-btn-back {
+    margin-top: 15px;
+    margin-bottom: 25px;
+  }
+
+
+}
