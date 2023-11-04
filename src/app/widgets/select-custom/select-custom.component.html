@@ -6,7 +6,7 @@
       <mat-select (selectionChange)="onSelectionChange($event)"
                   [formControlName]="formControlName"
       >
-        <mat-option *ngFor="let item of inputList"
+        <mat-option disabled="{{item.value === 'testing'}}" *ngFor="let item of inputList"
                     value="{{item.value}}"
         >{{item.label}}</mat-option>
       </mat-select>

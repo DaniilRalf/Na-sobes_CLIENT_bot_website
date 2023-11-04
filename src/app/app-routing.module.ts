@@ -13,6 +13,14 @@ const routes: Routes = [
     path: 'frontend-react',
     loadChildren: () => import('./pages/frontend-react').then(m => m.FrontendReactModule)
   },
+  {
+    path: 'frontend-angular',
+    loadChildren: () => import('./pages/frontend-angular').then(m => m.FrontendAngularModule)
+  },
+  {
+    path: 'frontend-vue',
+    loadChildren: () => import('./pages/frontend-vue').then(m => m.FrontendVueModule)
+  },
 ];
 
 @NgModule({

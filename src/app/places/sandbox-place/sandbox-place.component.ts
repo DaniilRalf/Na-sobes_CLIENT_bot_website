@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {DevSpecification, GradeEnum, ModeEnum, SandboxDataAnswerType, SandboxDataType} from "../../models";
+import {ModeEnum, SandboxDataAnswerType, SandboxDataType} from "../../models";
 import {take} from "rxjs";
 import {HttpService} from "../../helpers/services/http.service";
 import {MainPlace} from "../../helpers/directives/main.place";

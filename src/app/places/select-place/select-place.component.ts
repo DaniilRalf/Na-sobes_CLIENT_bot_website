@@ -37,8 +37,10 @@ export class SelectPlaceComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.gradeList = Object.keys(GradeEnum).map((key: string) => ({label: key, value: key.toLowerCase()}))
-    this.modeList = Object.keys(ModeEnum).map((key: string) => ({label: key, value: key.toLowerCase()}))
+    this.gradeList = Object.keys(GradeEnum)
+      .map((key: string) => ({label: key, value: key.toLowerCase()}))
+    this.modeList = Object.keys(ModeEnum)
+      .map((key: string) => ({label: key === 'Testing' ? 'Testing(в разработке)' : key, value: key.toLowerCase()}))
 
     this.myForm = new FormGroup({
       grade: new FormControl(GradeEnum.Junior, [Validators.required]),

@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {HttpService} from "../../helpers/services/http.service";
-import {DevSpecification, GradeEnum, ModeEnum} from "../../models";
+import {ModeEnum} from "../../models";
 import {MainPlace} from "../../helpers/directives/main.place";
 
 @Component({
