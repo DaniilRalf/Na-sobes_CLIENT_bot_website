@@ -6,6 +6,10 @@
     color: var(--font-color-main);
     font-weight: bold;
     width: 600px;
+
+    @media (max-width: 650px) {
+      width: 300px;
+    }
   }
 
   ::ng-deep {

@@ -11,14 +11,24 @@
     width: 600px;
     margin-bottom: 25px;
     margin-top: 35px;
+
+    @media (max-width: 650px) {
+      width: 300px;
+    }
   }
 
   &-grade {
     width: 600px;
+    @media (max-width: 650px) {
+      width: 300px;
+    }
   }
 
   &-mode {
     width: 600px;
+    @media (max-width: 650px) {
+      width: 300px;
+    }
   }
 
   &-btn {

@@ -33,12 +33,38 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+pre {
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+
+
+.heading {
+  width: 100%;
+
+  @media (max-width: 650px) {
+    width: 300px;
+  }
+}
+
+
+
 
 .font-size-heading {
   font-size: 24px;
   color: var(--font-color-main);
   margin-top: 10px;
+
+  @media (max-width: 650px) {
+    font-size: 18px;
+  }
 }
+
+
+
 
 //CUSTOM-MATERIAL==========================
 .ng-trigger {
