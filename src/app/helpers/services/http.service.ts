@@ -29,8 +29,8 @@ export class HttpService {
     return this.http.post<SandboxDataType>(`${this.url}/${ModeEnum.Sandbox}/get-actual-question`, {
       number,
       devSpecification: this.devSpecification,
-      grade}
-    )
+      grade
+    })
   }
 
 }

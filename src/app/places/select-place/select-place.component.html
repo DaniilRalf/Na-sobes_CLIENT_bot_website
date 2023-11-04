@@ -1,5 +1,13 @@
 <div class="select-place">
 
+  <div class="select-place-btn">
+    <el-button-custom
+      [inputDisabled]="false"
+      [inputLabel]="'На страницу выбора сферы'"
+      (click)="onBackNavigate()"
+    ></el-button-custom>
+  </div>
+
   <div class="select-place-heading font-size-heading">Выберите Ваш уровень и желаемый режим обучения</div>
 
   <form [formGroup]="myForm">

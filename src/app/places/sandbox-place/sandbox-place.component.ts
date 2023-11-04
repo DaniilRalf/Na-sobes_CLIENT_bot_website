@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {GradeEnum, ModeEnum, SandboxDataAnswerType, SandboxDataType} from "../../models";
+import {DevSpecification, GradeEnum, ModeEnum, SandboxDataAnswerType, SandboxDataType} from "../../models";
 import {FrontendJsHttpService} from "../../pages/frontend-js/lib/frontend-js.http.service";
 import {take} from "rxjs";
 
@@ -15,10 +15,11 @@ export class SandboxPlaceComponent implements OnInit {
   SandboxDataAnswerType = SandboxDataAnswerType
 
   private activeUrl!: string
+  private activeDevSpecific!: string
+  private activeGrade!: GradeEnum
+  private activeMode!: ModeEnum
 
   public countQuestion!: number
-  private activeMode!: ModeEnum
-  private activeGrade!: GradeEnum
 
   public actualQuestion!: SandboxDataType
 
@@ -33,7 +34,7 @@ export class SandboxPlaceComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activeUrl = this.router.url.split('/frontend-js')[1]
+    this.activeUrl = this.router.url
     this.setActiveConfig()
 
 
@@ -48,7 +49,7 @@ export class SandboxPlaceComponent implements OnInit {
 
   public onNavigate(): void {
     this.router.navigate([
-      '/frontend-js',
+      this.activeDevSpecific,
       'select-place',
     ]).then();
   }
@@ -88,6 +89,13 @@ export class SandboxPlaceComponent implements OnInit {
       this.activeGrade = GradeEnum.Middle
     } else if (this.activeUrl.includes('middle') && this.activeUrl.includes('testing')) {
 
+    }
+
+    /** get from url dev-specification */
+    for (let obj in DevSpecification) {
+      if (this.activeUrl.includes((DevSpecification as any)[obj] as string)) {
+        this.activeDevSpecific = (DevSpecification as any)[obj]
+      }
     }
   }
 

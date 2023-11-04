@@ -1,6 +1,6 @@
 @import "../../../styles";
 
-.select-place {
+.select-dev-specific {
   width: 100%;
 
   display: flex;
@@ -10,19 +10,10 @@
   &-heading {
     width: 600px;
     margin-bottom: 25px;
-    margin-top: 35px;
-  }
-
-  &-grade {
-    width: 600px;
-  }
-
-  &-mode {
-    width: 600px;
   }
 
   &-btn {
     margin-top: 15px;
   }
-}
 
+}

@@ -16,6 +16,7 @@ const routes: Routes = [
         path: 'select-place',
         component: SelectPlaceComponent
       },
+
       {
         path: 'junior/sandbox-place',
         component: SandboxPlaceComponent

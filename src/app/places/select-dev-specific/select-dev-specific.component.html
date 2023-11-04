@@ -1,0 +1,22 @@
+<div class="select-dev-specific">
+
+  <div class="select-dev-specific-heading font-size-heading"
+  >Выберите Вашу сферу разработки</div>
+
+  <form [formGroup]="myForm">
+    <div class="">
+      <el-select-custom [formControlName]="'devSpecific'"
+                        [inputList]="devSpecificList"
+                        [inputLabel]="'Ваша сфера'"
+      ></el-select-custom>
+    </div>
+  </form>
+
+  <div class="select-dev-specific-btn">
+    <el-button-custom [inputLabel]="'Продолжить'"
+                      [inputDisabled]="!(!!returnDataForm?.devSpecific)"
+                      (click)="onNavigate()"
+    ></el-button-custom>
+  </div>
+
+</div>

@@ -15,6 +15,7 @@ import { SelectCustomComponent } from './widgets/select-custom/select-custom.com
 import {MatButtonModule} from "@angular/material/button";
 import { ButtonCustomComponent } from './widgets/button-custom/button-custom.component';
 import {HttpClientModule} from "@angular/common/http";
+import { SelectDevSpecificComponent } from './places/select-dev-specific/select-dev-specific.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {HttpClientModule} from "@angular/common/http";
     SandboxPlaceComponent,
     TestingPlaceComponent,
     SelectCustomComponent,
-    ButtonCustomComponent
+    ButtonCustomComponent,
+    SelectDevSpecificComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {GradeEnum, ModeEnum} from "../../models";
+import {DevSpecification, GradeEnum, ModeEnum} from "../../models";
 import {FormControl, FormControlStatus, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 
@@ -49,13 +49,24 @@ export class SelectPlaceComponent implements OnInit{
   }
 
   public onNavigate(): void {
-    if (this.returnDataForm?.mode && this.returnDataForm?.grade) {
+    const activeUrl = this.router.url
+    let activeDevSpecific
+    for (let obj in DevSpecification) {
+      if (activeUrl.includes((DevSpecification as any)[obj] as string)) {
+        activeDevSpecific = (DevSpecification as any)[obj]
+      }
+    }
+    if (this.returnDataForm?.mode && this.returnDataForm?.grade && activeDevSpecific) {
       this.router.navigate([
-        '/frontend-js',
+        `/${activeDevSpecific}`,
         this.returnDataForm.grade,
         `${this.returnDataForm.mode}-place`
       ]).then();
     }
+  }
+
+  public onBackNavigate(): void {
+    this.router.navigate(['select-dev-specific']).then()
   }
 
 }
