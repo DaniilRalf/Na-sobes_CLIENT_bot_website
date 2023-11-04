@@ -41,6 +41,7 @@
     .paragraph {
       margin: 10px 0;
       color: var(--font-color-main);
+      font-size: 14px;
 
       @media (max-width: 650px) {
         font-size: 13px;
