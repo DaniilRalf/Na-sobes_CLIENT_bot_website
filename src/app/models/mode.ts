@@ -1,4 +1,4 @@
 export enum ModeEnum {
   Sandbox = 'sandbox',
-  // Testing = 'testing',
+  Testing = 'testing',
 }

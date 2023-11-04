@@ -9,6 +9,10 @@ const routes: Routes = [
     path: 'frontend-js',
     loadChildren: () => import('./pages/frontend-js').then(m => m.FrontendJsModule)
   },
+  {
+    path: 'frontend-react',
+    loadChildren: () => import('./pages/frontend-react').then(m => m.FrontendReactModule)
+  },
 ];
 
 @NgModule({

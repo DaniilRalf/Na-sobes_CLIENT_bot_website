@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {DevSpecification, GradeEnum, ModeEnum, SandboxDataAnswerType, SandboxDataType} from "../../models";
-import {FrontendJsHttpService} from "../../pages/frontend-js/lib/frontend-js.http.service";
 import {take} from "rxjs";
+import {HttpService} from "../../helpers/services/http.service";
 
 @Component({
   selector: 'app-sandbox-place',
@@ -12,24 +12,24 @@ import {take} from "rxjs";
 })
 export class SandboxPlaceComponent implements OnInit {
 
+
   SandboxDataAnswerType = SandboxDataAnswerType
 
+  countQuestion!: number
+
+  actualQuestion!: SandboxDataType
+
   private activeUrl!: string
-  private activeDevSpecific!: string
+  private activeDevSpecific!: DevSpecification
   private activeGrade!: GradeEnum
   private activeMode!: ModeEnum
 
-  public countQuestion!: number
-
-  public actualQuestion!: SandboxDataType
-
   private oldQuestionList: number[] = []
-
 
   constructor(
     private cd: ChangeDetectorRef,
     private router: Router,
-    private httpService: FrontendJsHttpService
+    private httpService: HttpService
   ) {
   }
 
@@ -38,12 +38,13 @@ export class SandboxPlaceComponent implements OnInit {
     this.setActiveConfig()
 
 
-    this.httpService.getCountQuestion(this.activeGrade)
-      .pipe(
-        take(1),
-      ).subscribe((count: number) => {
-        this.countQuestion = count
-        this.onNextQuestion()
+    this.httpService.getCountQuestion(this.activeDevSpecific, this.activeGrade)
+      .pipe(take(1))
+      .subscribe((count: number) => {
+        if (count) {
+          this.countQuestion = count
+          this.onNextQuestion()
+        }
       })
   }
 
@@ -68,7 +69,7 @@ export class SandboxPlaceComponent implements OnInit {
   }
 
   private getActualQuestion(questionNumber: number): void {
-    this.httpService.getActualQuestion(questionNumber, this.activeGrade)
+    this.httpService.getActualQuestion(this.activeDevSpecific, questionNumber, this.activeGrade)
       .pipe(
         take(1),
       ).subscribe((data: SandboxDataType) => {

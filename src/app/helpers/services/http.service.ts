@@ -9,26 +9,24 @@ import {Observable} from "rxjs";
 })
 export class HttpService {
 
-  protected devSpecification!: DevSpecification
-
   url = environment.apiPath
 
   constructor(
-    protected http: HttpClient
+    public http: HttpClient
   ) {
   }
 
-  getCountQuestion(grade: GradeEnum): Observable<number> {
+  getCountQuestion(devSpecification: DevSpecification, grade: GradeEnum): Observable<number> {
     return this.http.post<number>(`${this.url}/${ModeEnum.Sandbox}/get-count`, {
-      devSpecification: this.devSpecification,
+      devSpecification: devSpecification,
       grade
     })
   }
 
-  getActualQuestion(number: number, grade: GradeEnum): Observable<SandboxDataType> {
+  getActualQuestion(devSpecification: DevSpecification, number: number, grade: GradeEnum): Observable<SandboxDataType> {
     return this.http.post<SandboxDataType>(`${this.url}/${ModeEnum.Sandbox}/get-actual-question`, {
       number,
-      devSpecification: this.devSpecification,
+      devSpecification: devSpecification,
       grade
     })
   }
