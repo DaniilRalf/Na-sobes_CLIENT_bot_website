@@ -1,5 +1,5 @@
 name: deploy-prod
-run-name: ${{ github.actor }} is deploy Back to prod
+run-name: ${{ github.actor }} is deploy Front to prod
 on:
   pull_request:
     branches: [ master ]
@@ -32,13 +32,13 @@ jobs:
           source: 'dist/na-sobes/*'
           target: '../../var/www/front'
 
-#      - name: 'restart-nginx'
-#        uses: appleboy/ssh-action@v0.1.10
-#        with:
-#          host: '31.129.99.106'
-#          username: 'root'
-#          password: 'pZJAsbwD&2PV'
-#          port: '22'
-#          script: |
-#            ls -al
-#            sudo service nginx restart
+      - name: 'restart-nginx'
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: '31.129.99.106'
+          username: 'root'
+          password: 'pZJAsbwD&2PV'
+          port: '22'
+          script: |
+            ls -al
+            sudo service nginx restart

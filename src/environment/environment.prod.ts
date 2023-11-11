@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiPath: 'http://localhost:8000'
+  apiPath: 'https://na-sobes.ru/api'
 };
