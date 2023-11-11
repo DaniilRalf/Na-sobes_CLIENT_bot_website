@@ -8,10 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   telegramPlatform = (window as any).Telegram.WebApp.platform
   title = 'na-sobes';
-
-  constructor() {
-    console.log('==================')
-    console.log((window as any).Telegram)
-    console.log('==================')
-  }
 }

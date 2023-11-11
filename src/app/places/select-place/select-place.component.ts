@@ -21,7 +21,7 @@ interface SelectDataType {
 })
 export class SelectPlaceComponent implements OnInit{
 
-  telegramPlatform = (window as any).Telegram.WebView.isIframe as any
+  telegramPlatform = (window as any).Telegram.WebApp.platform
 
   gradeList!: SelectDataType[]
 

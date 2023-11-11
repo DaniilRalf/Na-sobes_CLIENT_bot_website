@@ -1,7 +1,7 @@
 <div [ngClass]="{
         'app': true,
-        'desktop': !telegramPlatform,
-        'bot': telegramPlatform
+        'desktop': telegramPlatform !== 'tdesktop',
+        'bot': telegramPlatform === 'tdesktop'
 }">
   <div class="">{{telegramPlatform}}</div>
   <router-outlet></router-outlet>
