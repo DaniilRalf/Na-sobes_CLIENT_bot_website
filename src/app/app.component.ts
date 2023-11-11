@@ -6,6 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  telegramPlatform = (window as any).Telegram.WebView.isIframe as any
+  telegramPlatform = (window as any).Telegram.WebApp.platform
   title = 'na-sobes';
+
+  constructor() {
+    console.log('==================')
+    console.log((window as any).Telegram)
+    console.log('==================')
+  }
 }
