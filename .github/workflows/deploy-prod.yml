@@ -1,0 +1,44 @@
+name: deploy-prod
+run-name: ${{ github.actor }} is deploy Back to prod
+on:
+  pull_request:
+    branches: [ master ]
+  push:
+    branches: [ master ]
+jobs:
+  deploy-front:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v1
+        name: 'setup node'
+        with:
+          node-version: '18.x'
+
+      - name: 'install npm packages'
+        run: npm i
+
+      - name: 'build'
+        run: npm run build
+
+      - name: deploy
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: '31.129.99.106'
+          username: 'root'
+          password: 'pZJAsbwD&2PV'
+          port: '22'
+          source: 'dist/na-sobes/*'
+          target: '../../var/www/front'
+
+#      - name: 'restart-nginx'
+#        uses: appleboy/ssh-action@v0.1.10
+#        with:
+#          host: '31.129.99.106'
+#          username: 'root'
+#          password: 'pZJAsbwD&2PV'
+#          port: '22'
+#          script: |
+#            ls -al
+#            sudo service nginx restart
